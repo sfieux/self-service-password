@@ -19,6 +19,11 @@
 #
 #==============================================================================
 
+# random_bytes implementation for older versions of php
+if (!is_callable('random_bytes')) {
+    require_once("lib/random_bytes.inc.php");
+}
+
 # Create SSHA password
 function make_ssha_password($password) {
     $salt = random_bytes(4);
